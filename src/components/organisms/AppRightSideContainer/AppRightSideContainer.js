@@ -63,7 +63,7 @@ function AppRightSideContainer({ children, timp, isLoadingContent,contentsFromVC
           <Skeletone />
         ) : (
           <>
-            <a href={`#introDiv`}>Introduction</a>
+            <a href={`#`}>Introduction</a>
             {contentsFromVC.map((vc, index) => {
               return (
                 <div>

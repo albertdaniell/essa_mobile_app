@@ -127,6 +127,8 @@ const gapsDataSlice = createSlice({
 
     builder.addCase(getContentFromVC.pending, (state, action) => {
       state.contentsFromVC.loading = true;
+      state.contentsFromVC.data = [];
+
     });
 
     builder.addCase(getContentFromVC.fulfilled, (state, action) => {
@@ -140,6 +142,9 @@ const gapsDataSlice = createSlice({
 
     builder.addCase(getValueChainsDetail.pending, (state, action) => {
       state.valueChainDetail.loading = true;
+      state.valueChainDetail.data = {};
+
+
     });
 
     builder.addCase(getValueChainsDetail.fulfilled, (state, action) => {

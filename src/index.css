@@ -425,7 +425,20 @@ div .tab-content{
 
 
 
+#headerImg {
+  background-position: center;
+  /* width: 200px; */
+  background: rgb(242, 242, 242);
+  height: 300px;
+  margin-top: 67px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  /* background: #000; */
+  /* display: relai; */
+  position: relative;
 
+  /* display: none; */
+}
 @media (max-width: 880px) {
   .accordion-body img {
     max-width: 100% !important;
@@ -502,6 +515,8 @@ div .tab-content{
   #myNav .collapse .dropdown-menu #childLinks {
     margin-left: 10px;
   }
+
+  
   #headerImg {
     margin-top: 60px;
   }

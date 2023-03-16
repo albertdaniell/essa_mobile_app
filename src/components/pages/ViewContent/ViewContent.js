@@ -78,17 +78,20 @@ function ViewContent({ location }) {
         ></AppRightSideContainer>
 
 <AppLeftSideContainer>
-          {valueChainDetail.loading ? (
-            <HeaderImageSkeletone />
-          ) : (
+
+{valueChainDetail.loading &&
+      <HeaderImageSkeletone />
+  }
+  
+          
             <>
               <Headerimage
-                pageHeader={valueChainDetail.data.name}
-                img={valueChainDetail.data.image}
+                pageHeader={valueChainDetail.data.hasOwnProperty("name") && valueChainDetail.data.name }
+                img={valueChainDetail.data.hasOwnProperty("image") && valueChainDetail.data.image}
               ></Headerimage>
             </>
-          )}
-          {contentsFromVC.loading && <IntroSkeletone />}
+          
+          {valueChainDetail.loading && <IntroSkeletone />}
 
           {contentsFromVC.length === 0 && contentsFromVC.loading === null ? (
             <span>
