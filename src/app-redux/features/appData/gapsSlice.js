@@ -11,6 +11,25 @@ export const getValueChains = createAsyncThunk(
   }
 );
 
+export const getValueChainsDetail = createAsyncThunk(
+  "gapsData/getValueChainsDetail",
+  async (data) => {
+    let url = `http://137.184.22.30/api/farmer_timps/valuechain/${data}`;
+
+    const res = await AxiosGetService(url);
+    return res.data;
+  }
+);
+
+export const getContentFromVC = createAsyncThunk(
+  "gapsData/getContentFromVC",
+  async (data) => {
+    let url = `http://137.184.22.30/api/farmer_timps/content/?vcid=${data}`;
+
+    const res = await AxiosGetService(url);
+    return res.data;
+  }
+);
 const cropsVcState = {
   loading: null,
   data: [],
@@ -29,6 +48,17 @@ const livestockVCState = {
   error: "",
 };
 
+const contentsFromVC = {
+  loading: null,
+  data: [],
+  error: "",
+};
+
+const valueChainDetail = {
+  loading: null,
+  data: {},
+  error: "",
+};
 const gapsDataSlice = createSlice({
   name: "gapsData",
   initialState: {
@@ -36,6 +66,8 @@ const gapsDataSlice = createSlice({
     livestockVCState,
     NRMVCState,
     cropsVcState,
+    contentsFromVC,
+    valueChainDetail,
   },
   reducers: {
     toggleLoginForm: (state, action) => {},
@@ -91,6 +123,32 @@ const gapsDataSlice = createSlice({
       if (arg === 3) {
         state.NRMVCState.loading = false;
       }
+    });
+
+    builder.addCase(getContentFromVC.pending, (state, action) => {
+      state.contentsFromVC.loading = true;
+    });
+
+    builder.addCase(getContentFromVC.fulfilled, (state, action) => {
+      state.contentsFromVC.data = action.payload;
+      state.contentsFromVC.loading = false;
+    });
+    builder.addCase(getContentFromVC.rejected, (state, action) => {
+      state.contentsFromVC.error = "something went wrong";
+      state.contentsFromVC.loading = true;
+    });
+
+    builder.addCase(getValueChainsDetail.pending, (state, action) => {
+      state.valueChainDetail.loading = true;
+    });
+
+    builder.addCase(getValueChainsDetail.fulfilled, (state, action) => {
+      state.valueChainDetail.data = action.payload;
+      state.valueChainDetail.loading = false;
+    });
+    builder.addCase(getValueChainsDetail.rejected, (state, action) => {
+      state.valueChainDetail.error = "something went wrong";
+      state.valueChainDetail.loading = true;
     });
   },
 });

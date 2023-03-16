@@ -1,7 +1,4 @@
 import React from "react";
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import { ValueChainsContext } from "../../contexts/ValueChainsContext/ValueChainsContext";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import "./AppRight.css";
@@ -52,8 +49,8 @@ const Skeletone = () => {
   );
 };
 
-function AppRightSideContainer({ children, timp, isLoadingContent }) {
-  const { contentsFromVC } = useContext(ValueChainsContext);
+function AppRightSideContainer({ children, timp, isLoadingContent,contentsFromVC }) {
+
 
   return (
     <div class="col-sm-3" id="app_left_nav">

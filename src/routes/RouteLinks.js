@@ -6,9 +6,7 @@ let HOME_ROUTES = {
   about:"about",
   nrm:"nrm",
   market:"market",
-
-
-
+  viewcontent:"viewcontent",
  
 }
 

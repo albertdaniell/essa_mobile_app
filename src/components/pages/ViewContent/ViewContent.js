@@ -1,7 +1,5 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import queryString from "query-string";
-import { ValueChainsContext } from "../../contexts/ValueChainsContext/ValueChainsContext";
-import AppRightSideContainer from "../../layouts/AppRightSideContainer/AppRightSideContainer";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import "./ViewContent.css";
@@ -9,6 +7,15 @@ import Headerimage from "../../organisms/HeaderImage/Headerimage";
 import AppLeftSideContainer from "../../organisms/AppLeftSideContainer/AppLeftSideContainer";
 import AppContentCard from "../../organisms/AppContentCard/AppContentCard";
 import AppContainer from "../../organisms/AppContainer/AppContainer";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getContentFromVC,
+  getValueChainsDetail,
+} from "../../../app-redux/features/appData/gapsSlice";
+import AppRightSideContainer from "../../organisms/AppRightSideContainer/AppRightSideContainer";
+import { useSearchParams } from "react-router-dom";
+import HomePageLayout from "../../../routes/Layouts/HomePageLayout";
+import AppRow from "../../organisms/AppRow/AppRow";
 
 let Introheight = 300;
 let introStyle = {
@@ -40,70 +47,64 @@ const IntroSkeletone = () => {
 };
 
 function ViewContent({ location }) {
-  const qValue = queryString.parse(location.search);
-  const { vcid } = qValue;
-  const {
-    setValueChainDetail,
-    setContentsFromVC,
-    getValueChainsDetail,
-    getContentFromVC,
-    valueChainDetail,
-    contentsFromVC,
-    isLoadingContent,
-  } = useContext(ValueChainsContext);
+  const dispatch = useDispatch();
+  const GAPSData = useSelector((state) => state.gapsData);
+  const { contentsFromVC, valueChainDetail } = GAPSData;
+  let [searchParams, setSearchParams] = useSearchParams();
+  let vcid = searchParams.get("vcid");
+
+  // console.log({valueChainDetail.data})
+
+  
+ 
   useEffect(() => {
-    getValueChainsDetail(vcid);
-    getContentFromVC(vcid);
+    dispatch(getValueChainsDetail(vcid));
+
+    dispatch(getContentFromVC(vcid));
     return () => {
       // cleanup
-      setValueChainDetail([]);
-      setContentsFromVC([]);
+      // setValueChainDetail([]);
+      // setContentsFromVC([]);
     };
   }, [vcid]);
   return (
-    <div>
-      {/* <Preheader></Preheader> */}
-      {/* <OrgLogos></OrgLogos> */}
-      {/* <AppLogo appName={valueChainDetail.name} to="/"></AppLogo> */}
-     
-      {/* {
-    JSON.stringify(valueChainDetail)
-} */}
-
+    <HomePageLayout>
       <AppContainer showFooter={false}>
+        <AppRow>
         <AppRightSideContainer
-          isLoadingContent={isLoadingContent}
-          timp={valueChainDetail.name}
+          contentsFromVC={contentsFromVC.data}
+          isLoadingContent={contentsFromVC.loading}
+          timp={valueChainDetail.data.name}
         ></AppRightSideContainer>
 
-        <AppLeftSideContainer>
-          {isLoadingContent ? (
+<AppLeftSideContainer>
+          {valueChainDetail.loading ? (
             <HeaderImageSkeletone />
           ) : (
             <>
               <Headerimage
-                pageHeader={valueChainDetail.name}
-                img={valueChainDetail.image}
+                pageHeader={valueChainDetail.data.name}
+                img={valueChainDetail.data.image}
               ></Headerimage>
             </>
           )}
-          {isLoadingContent && <IntroSkeletone />}
+          {contentsFromVC.loading && <IntroSkeletone />}
 
-          {contentsFromVC.length === 0 && isLoadingContent === null ? (
+          {contentsFromVC.length === 0 && contentsFromVC.loading === null ? (
             <span>
               No Content for the language selected for this value chain.
             </span>
           ) : (
             <>
-              {isLoadingContent ? (
+              {contentsFromVC.loading ? (
                 <></>
               ) : (
                 <>
-                  {valueChainDetail.intro !== undefined && (
+                  {valueChainDetail.data.intro !== undefined && (
                     <div
                       id="introDiv"
                       dangerouslySetInnerHTML={{
-                        __html: `${valueChainDetail.intro}`,
+                        __html: `${valueChainDetail.data.intro}`,
                       }}
                     />
                   )}
@@ -112,14 +113,14 @@ function ViewContent({ location }) {
 
               {contentsFromVC !== undefined && contentsFromVC.length !== 0 && (
                 <>
-                  {isLoadingContent ? (
+                  {contentsFromVC.loading ? (
                     <>
                       <IntroSkeletone />
                       <IntroSkeletone />
                     </>
                   ) : (
                     <>
-                      {contentsFromVC.map((value, index) => {
+                      {contentsFromVC.data.map((value, index) => {
                         return (
                           <AppContentCard
                             id={`section${index}content`}
@@ -138,11 +139,13 @@ function ViewContent({ location }) {
               )}
             </>
           )}
-
-         
         </AppLeftSideContainer>
+        </AppRow>
+        
+
+        
       </AppContainer>
-    </div>
+    </HomePageLayout>
   );
 }
 

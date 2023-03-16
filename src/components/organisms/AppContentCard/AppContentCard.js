@@ -1,7 +1,7 @@
 import React from "react";
 
 function AppContentCard(props) {
-  const { message, content, title, index, target,id } = props;
+  const { message, content, title, index, target, id } = props;
   return (
     <div id={id} class="card">
       {props.children}
