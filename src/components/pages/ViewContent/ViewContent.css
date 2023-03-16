@@ -1,0 +1,43 @@
+#introDiv h2{
+    font-size: 25px !important;
+    text-decoration: none !important;
+    color: green !important;
+    padding: 5px;
+
+}
+
+#introDiv h3{
+    font-size: 20px !important;
+    padding: 5px;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    /* color: green !important; */
+}
+
+#introDiv img{
+    /* flex-direction: column; */
+    height: auto;
+    max-width: 100%;
+    
+}
+
+#introDiv p {
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    /* font-size: 18px; */
+}
+
+#introDiv table {
+    padding: 5px !important;
+    margin: 5px;
+    width: 100% !important;
+    border: 1px solid transparent;
+    font-weight: bold;
+}
+
+#introDiv table img {
+    height: auto !important;
+    width: 100% !important;
+    margin-bottom: 10px;
+}
