@@ -1,0 +1,65 @@
+#PrimaryCard{
+    background: #002245;
+    padding:20px;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+    min-height: 200px;
+    transition: .5s;
+    /* height: 300px; */
+}
+
+#WeatherTile{
+    background: #1874cf;
+    padding:20px;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content:space-around;
+    min-height: 200px;
+    transition: .5s;
+    /* height: 300px; */
+}
+
+#WeatherTile p{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    font-size: 90% !important;
+}
+
+#SecondaryCard{
+    background: #F9F9F9 ;
+    padding:20px;
+    border-radius: 20px;
+    color: rgb(36, 36, 36);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+    min-height: 200px;
+    transition: .5s;
+
+    /* height: 300px; */
+    
+}
+#PrimaryCard:hover{
+    background: #F9F9F9 ;
+    color: rgb(36, 36, 36);
+
+}
+
+#SecondaryCard:hover{
+    background: #002245;
+    color: white;
+
+
+}
+
+#themes{
+    text-decoration: none;
+}

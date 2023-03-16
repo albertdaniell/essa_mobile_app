@@ -1,0 +1,20 @@
+[
+    {
+        "id": "15",
+        "name": "Taita Taveta",
+        "lat": "-3.42156",
+        "lng": "37.849",
+        "category": "Museum",
+        "code": "6",
+        "loccode": "<a class=\"weatherwidget-io\" href=\"https:\/\/forecast7.com\/en\/n3d3938d57\/taita-taveta-county\/\" data-label_1=\"TAITA-TAVETA COUNTY\" data-label_2=\"WEATHER\" data-theme=\"pure\" >TAITA-TAVETA COUNTY WEATHER<\/a>\r\n<script>\r\n!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https:\/\/weatherwidget.io\/js\/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');\r\n<\/script>"
+    },
+    {
+        "id": "1",
+        "name": "Machakos",
+        "lat": "-1.51285",
+        "lng": "37.2369",
+        "category": "Museum",
+        "code": "16",
+        "loccode": "<a class=\"weatherwidget-io\" href=\"https:\/\/forecast7.com\/en\/n1d5237d26\/machakos\/\" data-label_1=\"MACHAKOS\" data-label_2=\"WEATHER\" data-theme=\"pure\" >MACHAKOS WEATHER<\/a>\r\n<script>\r\n!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https:\/\/weatherwidget.io\/js\/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');\r\n<\/script>"
+    }
+]
