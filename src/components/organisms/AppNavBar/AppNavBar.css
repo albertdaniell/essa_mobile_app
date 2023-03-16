@@ -12,10 +12,10 @@
   height: 50px;
   align-items: center;
   width: 100%;
-  transition: .5s;
+  transition: 0.5s;
 }
 
-#appnav:hover{
+#appnav:hover {
   /* background: rgb(244, 244, 244); */
 }
 
@@ -47,52 +47,39 @@
   width: 150px;
 }
 
-
-
-
-@media (min-width: 1201px)  and (max-width: 1920px) {
- 
+@media (min-width: 1201px) and (max-width: 1920px) {
 }
 
-
-@media (min-width: 1025px) and (max-width: 1200px)  {
+@media (min-width: 1025px) and (max-width: 1200px) {
   #app_nav_logo img {
     width: 100px;
   }
-
 }
-@media (min-width: 769px) and (max-width: 1024px)  {
+@media (min-width: 769px) and (max-width: 1024px) {
   #app_nav_logo img {
     width: 90px;
   }
-   
 }
 
-
-
-@media (min-width: 481px) and (max-width: 878px)  {
-  #appnav{
+@media (min-width: 481px) and (max-width: 878px) {
+  #appnav {
     display: none;
-   }
+  }
 
-   #app_nav_logo img {
+  #app_nav_logo img {
     height: auto;
     width: 100px;
   }
 }
 
-
-
-
-@media (min-width: 220px) and (max-width: 576px)  {
-  #appnav{
+@media (min-width: 220px) and (max-width: 576px) {
+  #appnav {
     display: none;
-  } 
+  }
 }
 
-
-@media (max-width: 219px)  {
-  #appnav{
+@media (max-width: 219px) {
+  #appnav {
     display: none;
-  } 
+  }
 }

@@ -1,23 +1,29 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { getValueChains } from '../../app-redux/features/appData/gapsSlice'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getValueChains } from "../../app-redux/features/appData/gapsSlice";
+import { getMarketsInCounty, getValueChainsMarket } from "../../app-redux/features/appData/marketSlice";
 
-function AppDataProvider({children}) {
-  const dispatch = useDispatch()
+function AppDataProvider({ children }) {
+  const dispatch = useDispatch();
 
-  useEffect(()=>{
+  const WeatherData = useSelector((state) => state.weatherData);
 
-    dispatch(getValueChains(1))
-    dispatch(getValueChains(2))
-    dispatch(getValueChains(3))
+  const { countySelected } = WeatherData;
 
+  useEffect(() => {
+    dispatch(getValueChains(1));
+    dispatch(getValueChains(2));
+    dispatch(getValueChains(3));
+    dispatch(getValueChainsMarket());
 
-  },[])
-  return (
-    <div>
-      {children}
-    </div>
-  )
+  }, []);
+
+  useEffect(() => {
+    if (countySelected !== null) {
+      dispatch(getMarketsInCounty(countySelected.id));
+    }
+  }, [countySelected]);
+  return <div>{children}</div>;
 }
 
-export default AppDataProvider
+export default AppDataProvider;

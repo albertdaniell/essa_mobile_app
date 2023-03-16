@@ -55,8 +55,6 @@ function ViewContent({ location }) {
 
   // console.log({valueChainDetail.data})
 
-  
- 
   useEffect(() => {
     dispatch(getValueChainsDetail(vcid));
 
@@ -71,82 +69,82 @@ function ViewContent({ location }) {
     <HomePageLayout>
       <AppContainer showFooter={false}>
         <AppRow>
-        <AppRightSideContainer
-          contentsFromVC={contentsFromVC.data}
-          isLoadingContent={contentsFromVC.loading}
-          timp={valueChainDetail.data.name}
-        ></AppRightSideContainer>
+          <AppRightSideContainer
+            contentsFromVC={contentsFromVC.data}
+            isLoadingContent={contentsFromVC.loading}
+            timp={valueChainDetail.data.name}
+          ></AppRightSideContainer>
 
-<AppLeftSideContainer>
+          <AppLeftSideContainer>
+            {valueChainDetail.loading && <HeaderImageSkeletone />}
 
-{valueChainDetail.loading &&
-      <HeaderImageSkeletone />
-  }
-  
-          
             <>
               <Headerimage
-                pageHeader={valueChainDetail.data.hasOwnProperty("name") && valueChainDetail.data.name }
-                img={valueChainDetail.data.hasOwnProperty("image") && valueChainDetail.data.image}
+                pageHeader={
+                  valueChainDetail.data.hasOwnProperty("name") &&
+                  valueChainDetail.data.name
+                }
+                img={
+                  valueChainDetail.data.hasOwnProperty("image") &&
+                  valueChainDetail.data.image
+                }
               ></Headerimage>
             </>
-          
-          {valueChainDetail.loading && <IntroSkeletone />}
 
-          {contentsFromVC.length === 0 && contentsFromVC.loading === null ? (
-            <span>
-              No Content for the language selected for this value chain.
-            </span>
-          ) : (
-            <>
-              {contentsFromVC.loading ? (
-                <></>
-              ) : (
-                <>
-                  {valueChainDetail.data.intro !== undefined && (
-                    <div
-                      id="introDiv"
-                      dangerouslySetInnerHTML={{
-                        __html: `${valueChainDetail.data.intro}`,
-                      }}
-                    />
-                  )}
-                </>
-              )}
+            {valueChainDetail.loading && <IntroSkeletone />}
 
-              {contentsFromVC !== undefined && contentsFromVC.length !== 0 && (
-                <>
-                  {contentsFromVC.loading ? (
+            {contentsFromVC.length === 0 && contentsFromVC.loading === null ? (
+              <span>
+                No Content for the language selected for this value chain.
+              </span>
+            ) : (
+              <>
+                {contentsFromVC.loading ? (
+                  <></>
+                ) : (
+                  <>
+                    {valueChainDetail.data.intro !== undefined && (
+                      <div
+                        id="introDiv"
+                        dangerouslySetInnerHTML={{
+                          __html: `${valueChainDetail.data.intro}`,
+                        }}
+                      />
+                    )}
+                  </>
+                )}
+
+                {contentsFromVC !== undefined &&
+                  contentsFromVC.length !== 0 && (
                     <>
-                      <IntroSkeletone />
-                      <IntroSkeletone />
-                    </>
-                  ) : (
-                    <>
-                      {contentsFromVC.data.map((value, index) => {
-                        return (
-                          <AppContentCard
-                            id={`section${index}content`}
-                            key={value.valuechain_id + index}
-                            title={value.title}
-                            content={value.content}
-                            message={value.intro}
-                            target={`#index${index + 1}`}
-                            index={`index${index + 1}`}
-                          ></AppContentCard>
-                        );
-                      })}
+                      {contentsFromVC.loading ? (
+                        <>
+                          <IntroSkeletone />
+                          <IntroSkeletone />
+                        </>
+                      ) : (
+                        <>
+                          {contentsFromVC.data.map((value, index) => {
+                            return (
+                              <AppContentCard
+                                id={`section${index}content`}
+                                key={value.valuechain_id + index}
+                                title={value.title}
+                                content={value.content}
+                                message={value.intro}
+                                target={`#index${index + 1}`}
+                                index={`index${index + 1}`}
+                              ></AppContentCard>
+                            );
+                          })}
+                        </>
+                      )}
                     </>
                   )}
-                </>
-              )}
-            </>
-          )}
-        </AppLeftSideContainer>
+              </>
+            )}
+          </AppLeftSideContainer>
         </AppRow>
-        
-
-        
       </AppContainer>
     </HomePageLayout>
   );

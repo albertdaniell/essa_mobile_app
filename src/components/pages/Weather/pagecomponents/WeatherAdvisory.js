@@ -91,12 +91,7 @@ function WeatherAdvisory({ data }) {
                   xs_size="6"
                   className="mt-3"
                 >
-                  {/* Min Temp: 14.48 °
-Max Temp: 23.85 °
-Rainfall Chance: 25%
-Rainfall Amount: 2.94mm
-Humidity: 97.95%
-Wind Speed: 5.25m/s */}
+                
                   <WeatherTile className="shadow-sm" color="primary">
                     <div id="image_div" className="mb-2">
                       {/* {JSON.stringify(weather_url)} */}

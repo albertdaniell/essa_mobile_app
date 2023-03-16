@@ -26,6 +26,23 @@ export const NAVLINKS = {
       name: "Weather",
       link: `/${HOME_ROUTES.weather}`,
     },
+
+    {
+      id:2,
+      name: "C.S.A Management Practices",
+      link: `/${HOME_ROUTES.gaps}`,
+    },
+
+    {
+      id:2,
+      name: "NRM",
+      link: `/${HOME_ROUTES.nrm}`,
+    },
+    {
+      id:2,
+      name: "Market Information",
+      link: `/${HOME_ROUTES.market}`,
+    },
     
   ],
   home_page_footer_links_left: [
