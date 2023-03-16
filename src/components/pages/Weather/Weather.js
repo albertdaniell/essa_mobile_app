@@ -1,3 +1,4 @@
+import { Backdrop, CircularProgress } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -42,6 +43,13 @@ function Weather() {
   return (
     <HomePageLayout>
       {/* <AppCarousel /> */}
+
+      <Backdrop
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={weatherAdvioryState.loading}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
       <AppContainerFluid>
         {/* <Themes /> */}
 
@@ -60,7 +68,9 @@ function Weather() {
             wards={wardData}
           ></CountySelection>
 
-          <AppButton onClick={handleGetAdvisory}>Get Advisory</AppButton>
+          <AppButton
+          loading={weatherAdvioryState.loading}
+          onClick={handleGetAdvisory}>Get Advisory</AppButton>
         </div>
 
         <div className="mt-4">

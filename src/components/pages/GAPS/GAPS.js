@@ -21,7 +21,7 @@ function GAPS() {
             className="display-3 mb-2"
             style={{ fontSize: 40, fontWeight: 600 }}
           >
-            Good Agricultural Practices
+            Climate Smart Agropastoral Management Practices
           </h2>
 
          <AppRow>

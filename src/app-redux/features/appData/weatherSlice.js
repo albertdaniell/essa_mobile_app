@@ -115,7 +115,7 @@ const weatherDataSlice = createSlice({
     });
 
     builder.addCase(getWeatherAdvisory.fulfilled, (state, action) => {
-      state.weatherAdvioryState.loading = true;
+      state.weatherAdvioryState.loading = false;
       state.weatherAdvioryState.data = action.payload.data.timelines[0].intervals;
       state.weatherAdvioryState.error = "";
     });
