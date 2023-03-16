@@ -1,5 +1,7 @@
+@import "../../../index.css";
+
 #PrimaryCard{
-    background: #002245;
+    background: var(--primary_color);
     padding:20px;
     border-radius: 20px;
     color: white;
@@ -13,7 +15,7 @@
 }
 
 #WeatherTile{
-    background: #1874cf;
+    background: var(--secondary_color);
     padding:20px;
     border-radius: 20px;
     color: white;
@@ -33,7 +35,7 @@
 }
 
 #SecondaryCard{
-    background: #F9F9F9 ;
+    background: #F9F9F9;
     padding:20px;
     border-radius: 20px;
     color: rgb(36, 36, 36);

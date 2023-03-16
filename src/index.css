@@ -340,7 +340,7 @@ div .tab-content{
   padding-bottom: 0px !important;
   /* color: red; */
   margin-bottom: 1px !important;
-  font-family: inherit;
+  font-family:  "Urbanist", sans-serif !important;
 }
 
 #ContentDiv .card image{
@@ -361,7 +361,7 @@ div .tab-content{
 }
 
 .card {
-  border: 1px solid#59be41;
+  border: 1px solid var(--secondary_color);
   margin: 20px;
 }
 
@@ -377,14 +377,14 @@ div .tab-content{
 
 }
 #introContentDiv h2 {
-  color: #2c7e18;
+  color: var(--secondary_color);
   text-decoration: none;
   font-size: 18px;
   margin-left: 10px;
 }
 
 #ContentDiv h2 {
-  color: #2c7e18 !important;
+  color: var(--secondary_color) !important;
   text-decoration: none;
   font-size: 18px !important;
   margin-left: 10px;
@@ -392,7 +392,7 @@ div .tab-content{
 }
 
 #ContentDiv h2 span {
-  color: #2c7e18 !important;
+  color: var(--secondary_color) !important;
 }
 
 #ContentDiv p em span span span span {
@@ -402,7 +402,7 @@ div .tab-content{
 }
 
 #ContentDiv h2 span {
-  color: #2c7e18;
+  color: var(--secondary_color);
   text-decoration: none;
   font-size: 19px !important;
   /* margin-left: 10px; */
@@ -413,9 +413,10 @@ div .tab-content{
 }
 
 .card-header {
-  background-color: #59be41;
+  background-color: var(--secondary_color);
   /* font-size: 20px; */
   text-transform: capitalize;
+  color: white;
 }
 
 .card p{
@@ -493,7 +494,7 @@ div .tab-content{
   }
 
   .card {
-    border: 1px solid#59be41;
+    border: 1px solid var(--secondary_color);
     margin-left: 0px;
     margin-right: 0;
   }
@@ -577,7 +578,7 @@ h5 {
   /* font-weight: bold; */
   font-size: 20px;
   text-transform: capitalize;
-  color: #359c1b;
+  color: var(--secondary_color);
 }
 
 .card-body h5 {
