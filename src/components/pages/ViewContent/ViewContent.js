@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getContentFromVC,
   getValueChainsDetail,
+  resetValueChainData,
 } from "../../../app-redux/features/appData/gapsSlice";
 import AppRightSideContainer from "../../organisms/AppRightSideContainer/AppRightSideContainer";
 import { useSearchParams } from "react-router-dom";
@@ -60,6 +61,7 @@ function ViewContent({ location }) {
 
     dispatch(getContentFromVC(vcid));
     return () => {
+      dispatch(resetValueChainData())
       // cleanup
       // setValueChainDetail([]);
       // setContentsFromVC([]);

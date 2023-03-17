@@ -71,6 +71,11 @@ const gapsDataSlice = createSlice({
   },
   reducers: {
     toggleLoginForm: (state, action) => {},
+    resetValueChainData: (state, action) => {
+        state.contentsFromVC = contentsFromVC
+        state.valueChainDetail = valueChainDetail
+    },
+
   },
 
   extraReducers: (builder) => {
@@ -127,7 +132,6 @@ const gapsDataSlice = createSlice({
 
     builder.addCase(getContentFromVC.pending, (state, action) => {
       state.contentsFromVC.loading = true;
-      state.contentsFromVC.data = [];
 
     });
 
@@ -142,7 +146,6 @@ const gapsDataSlice = createSlice({
 
     builder.addCase(getValueChainsDetail.pending, (state, action) => {
       state.valueChainDetail.loading = true;
-      state.valueChainDetail.data = {};
 
 
     });
@@ -158,6 +161,6 @@ const gapsDataSlice = createSlice({
   },
 });
 
-export const { toggleLoginForm } = gapsDataSlice.actions;
+export const { toggleLoginForm,resetValueChainData } = gapsDataSlice.actions;
 
 export default gapsDataSlice.reducer;

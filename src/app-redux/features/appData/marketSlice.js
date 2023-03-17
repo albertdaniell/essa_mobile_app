@@ -114,7 +114,7 @@ const marketDataSlice = createSlice({
     });
 
     builder.addCase(getValueChainsMarket.fulfilled, (state, action) => {
-      state.valueChainsState.loading = true;
+      state.valueChainsState.loading = false;
       state.valueChainsState.data = action.payload;
       state.marketAdvioryState.error = "";
     });
@@ -130,7 +130,7 @@ const marketDataSlice = createSlice({
     });
 
     builder.addCase(getMarketsInCounty.fulfilled, (state, action) => {
-      state.marketsData.loading = true;
+      state.marketsData.loading = false;
       state.marketsData.data = action.payload;
       state.marketsData.error = "";
     });
