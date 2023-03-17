@@ -14,24 +14,12 @@ function HomePageFoooter() {
    <div id="homepage_footer">
      <AppContainer >
       <AppRow className="mt-4">
-        <AppCol lg_size={3} size="3" md_size={3}>
+        <AppCol lg_size={5} size="5" md_size={5}>
           <p className="fs-6">
           Disclaimer: This Portal of Knowledge was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of KALRO and do not necessarily reflect the views of the European Union.
           </p>
 
-          <ul className="list-inline">
-            <li className="list-inline-item">
-              <Location size={15} />
-            </li>
-            <li className="list-inline-item">email@email.com</li>
-          </ul>
 
-          <ul className="list-inline">
-            <li className="list-inline-item">
-              <Envelope size={15} />
-            </li>
-            <li className="list-inline-item">email@email.com</li>
-          </ul>
 
           <ul className="list-inline">
             <li className="list-inline-item">
@@ -44,7 +32,7 @@ function HomePageFoooter() {
           <p className="">Explore</p>
           <>
             <ul className="list-unstyled">
-              {NAVLINKS.home_page_footer_links_left.map((link,index) => {
+              {NAVLINKS.home_page_links.map((link,index) => {
                 return (
                   <HomePageFooterLink
                   key={index}
@@ -57,22 +45,7 @@ function HomePageFoooter() {
           </>
         </AppCol>
 
-        <AppCol lg_size={2} md_size={2}  id="homepage_footer_links" size="2">
-          <p className="">About</p>
-          <>
-            <ul className="list-unstyled">
-              {NAVLINKS.home_page_footer_links_right.map((link,index) => {
-                return (
-                  <HomePageFooterLink
-                  key={index}
-                    name={link.name}
-                    link={link.link}
-                  ></HomePageFooterLink>
-                );
-              })}
-            </ul>
-          </>
-        </AppCol>
+       
 
         <AppCol lg_size={3} md_size={3} size="3" id="social_media" olg="1">
           <ul className="list-unstyled">

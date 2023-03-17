@@ -25,7 +25,7 @@ function Themes() {
                   lg_size="6"
                   sm_size="6"
                   xs_size="6"
-                  className="mt-5"
+                  className="mt-3"
                 >
                   <Link id="themes" to={theme.link}>
                     <PrimaryCard className="shadow-sm" color={theme.color}>
