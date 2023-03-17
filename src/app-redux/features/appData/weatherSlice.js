@@ -48,7 +48,7 @@ const weatherDataSlice = createSlice({
     test: null,
     countySelected: null,
     subCountySelected: null,
-    wardSelected: null,
+    wardSelected: {},
     countyData: counties,
     subCountyData: [],
     wardData: [],
