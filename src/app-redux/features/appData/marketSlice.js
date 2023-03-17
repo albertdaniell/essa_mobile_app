@@ -62,9 +62,9 @@ const marketDataSlice = createSlice({
   name: "marketData",
   initialState: {
     test: null,
-    marketSelected: null,
-    submarketSelected: null,
-    valueChainSelected: null,
+    marketSelected: {},
+    submarketSelected: {},
+    valueChainSelected: {},
     marketsData,
     marketAdvioryState,
     valueChainsState,
@@ -76,7 +76,7 @@ const marketDataSlice = createSlice({
         let { stateData, object } = action.payload;
         if (stateData === "market") {
           state.marketSelected = object;
-          state.valueChainSelected = {};
+        //   state.valueChainSelected = {};
         }
 
         if (stateData === "value_chain") {

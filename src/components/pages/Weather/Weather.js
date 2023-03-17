@@ -69,6 +69,7 @@ function Weather() {
           ></CountySelection>
 
           <AppButton
+          disabled={wardSelected.hasOwnProperty("id")?false:true}
           loading={weatherAdvioryState.loading}
           onClick={handleGetAdvisory}>Get Advisory</AppButton>
         </div>

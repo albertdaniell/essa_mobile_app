@@ -59,7 +59,9 @@ function Market() {
             counties={countyData}
           ></MaketVcSelection>
 
-          <AppButton loading={marketAdvioryState.loading} onClick={getMarketAd}>
+          <AppButton
+          disabled={marketSelected.hasOwnProperty("id") && valueChainSelected.hasOwnProperty("id")?false:true}
+          loading={marketAdvioryState.loading} onClick={getMarketAd}>
             Get Advisory
           </AppButton>
 
