@@ -1,3 +1,4 @@
+import { StorefrontOutlined } from "@mui/icons-material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -11,7 +12,6 @@ import AppButton from "../../atoms/AppButton/AppButton";
 import AppCol from "../../organisms/AppCol/AppCol";
 import AppContainerFluid from "../../organisms/AppContainerFluid/AppContainerFluid";
 import AppRow from "../../organisms/AppRow/AppRow";
-import WeatherTile from "../../organisms/PrimaryCard/WeatherTile";
 import MaketVcSelection from "./pagescomponents/MaketVcSelection";
 
 function Market() {
@@ -25,13 +25,14 @@ function Market() {
     valueChainsState,
     valueChainSelected,
     marketAdvioryState,
+    marketSelected
   } = MarketsData;
 
   const getMarketAd = () => {
     dispatch(
       getmarketAdvisory({
         data: {
-          mid: countySelected.id,
+          mid: marketSelected.id,
           vid: valueChainSelected.id,
         },
       })
@@ -64,40 +65,48 @@ function Market() {
 
           <br></br>
           <br></br>
-          <AppRow>
-            <AppCol
-              md_size="6"
-              size="6"
-              lg_size="6"
-              sm_size="6"
-              xs_size="6"
-              className="mt-3"
-            >
-              <WeatherTile className="shadow-sm" color="primary">
-                <div id="image_div" className="mb-2"></div>
-                <>
-                  <p className="fs-2 mb-2">
-                    Maket: {marketAdvioryState.data.market_name}
-                  </p>
-                  <p className="fs-6">
-                    Product name: {marketAdvioryState.data.product_name}
-                  </p>
-                  <p className="fs-6">
-                    Retail Price: {marketAdvioryState.data.retail_price} /{" "}
-                    {marketAdvioryState.data.retail_unit}
-                  </p>
-                  <p className="fs-6">
-                    Wholesale Price: {marketAdvioryState.data.wholesale_price} /{" "}
-                    {marketAdvioryState.data.wholesale_unit}
-                  </p>
-                  <p className="fs-6">
-                    Whilesale unit:{" "}
-                    {marketAdvioryState.data.wholesale_unit_amount} %
-                  </p>
-                </>
-              </WeatherTile>
-            </AppCol>
-          </AppRow>
+
+          {marketAdvioryState.data.hasOwnProperty("market_name") && (
+            <>
+            
+              <AppRow>
+                <AppCol
+                  md_size="7"
+                  size="7"
+                  lg_size="8"
+                  sm_size="8"
+                  xs_size="12"
+                  className="mt-3"
+                >
+                  <div className="shadow-lg p-3" color="primary">
+                    
+                    <div id="image_div" className="mb-2"></div>
+                    <>
+                    <p className="fs-4 mb-2">
+                    <StorefrontOutlined fontSize="large" /> {marketAdvioryState.data.market_name}
+                      </p>
+                      <p className="fs-5">
+                        Product name: {marketAdvioryState.data.product_name}
+                      </p>
+                      <p className="fs-5">
+                        Retail Price: {marketAdvioryState.data.retail_price} /{" "}
+                        {marketAdvioryState.data.retail_unit}
+                      </p>
+                      <p className="fs-5">
+                        Wholesale Price:{" "}
+                        {marketAdvioryState.data.wholesale_price} /{" "}
+                        {marketAdvioryState.data.wholesale_unit}
+                      </p>
+                      <p className="fs-5">
+                        Wholesale unit:{" "}
+                        {marketAdvioryState.data.wholesale_unit_amount}
+                      </p>
+                    </>
+                  </div>
+                </AppCol>
+              </AppRow>
+            </>
+          )}
         </AppContainerFluid>
       </HomePageLayout>
     </div>
