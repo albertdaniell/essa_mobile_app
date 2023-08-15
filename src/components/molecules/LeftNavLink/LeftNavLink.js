@@ -10,7 +10,7 @@ function LeftNavLink({ image = {}, name = "", link = "", style = {} }) {
   return (
     <>
       <NavLink
-      onClick={()=> dispatch(toggleSideNav())}
+        onClick={()=> dispatch(toggleSideNav())}
         style={style}
         to={link}
         className={({ isActive }) =>

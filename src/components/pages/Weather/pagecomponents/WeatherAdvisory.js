@@ -2,7 +2,6 @@ import React from "react";
 import { FormatDate } from "../../../../constants/appUtils";
 import AppCol from "../../../organisms/AppCol/AppCol";
 import AppRow from "../../../organisms/AppRow/AppRow";
-import PrimaryCard from "../../../organisms/PrimaryCard/PrimaryCard";
 import WeatherTile from "../../../organisms/PrimaryCard/WeatherTile";
 
 function WeatherAdvisory({ data }) {

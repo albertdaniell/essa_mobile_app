@@ -3,7 +3,6 @@ import React from "react";
 import { NAVLINKS } from "../../../constants/navlinks";
 import AppCol from "../../organisms/AppCol/AppCol";
 import AppContainer from "../../organisms/AppContainer/AppContainer";
-import AppContainerFluid from "../../organisms/AppContainerFluid/AppContainerFluid";
 import AppRow from "../../organisms/AppRow/AppRow";
 import HomePageFooterLink from "../../organisms/HomePageFooterLink/HomePageFooterLink";
 import HomePageFooterSocialIcon from "../../organisms/HomePageFooterSocialICon/HomePageFooterSocialIcon";
